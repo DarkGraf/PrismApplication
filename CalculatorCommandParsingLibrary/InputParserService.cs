@@ -2,7 +2,7 @@
 
 namespace Application
 {
-    public class InputParserService
+    public class InputParserService : IInputParserService
     {
         public CommandType ParseCommand(string command)
         {

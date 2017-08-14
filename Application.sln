@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorLibrary", "Calcul
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorCommandParsingLibrary", "CalculatorCommandParsingLibrary\CalculatorCommandParsingLibrary.csproj", "{B1CEA06C-A835-4CC7-AC06-A41F1833F6F0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfacesLibrary", "InterfacesLibrary\InterfacesLibrary.csproj", "{3FAFB475-2D9C-4E01-9873-95BC43479CD1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{B1CEA06C-A835-4CC7-AC06-A41F1833F6F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1CEA06C-A835-4CC7-AC06-A41F1833F6F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1CEA06C-A835-4CC7-AC06-A41F1833F6F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FAFB475-2D9C-4E01-9873-95BC43479CD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FAFB475-2D9C-4E01-9873-95BC43479CD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FAFB475-2D9C-4E01-9873-95BC43479CD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FAFB475-2D9C-4E01-9873-95BC43479CD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

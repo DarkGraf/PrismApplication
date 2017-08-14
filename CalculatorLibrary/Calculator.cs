@@ -2,7 +2,7 @@
 
 namespace Application
 {
-    public class Calculator
+    public class Calculator : ICalculator
     {
         public int Execute(CommandType commandType, Arguments args)
         {

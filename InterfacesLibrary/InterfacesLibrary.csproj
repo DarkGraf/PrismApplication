@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E211B877-9535-4613-817D-285ED5AF24C4}</ProjectGuid>
+    <ProjectGuid>{3FAFB475-2D9C-4E01-9873-95BC43479CD1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CalculatorLibrary</RootNamespace>
-    <AssemblyName>CalculatorLibrary</AssemblyName>
+    <RootNamespace>InterfacesLibrary</RootNamespace>
+    <AssemblyName>InterfacesLibrary</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,26 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calculator.cs" />
-    <Compile Include="CalculatorReplLoop.cs" />
+    <Compile Include="ICalculator.cs" />
+    <Compile Include="IInputParserService.cs" />
+    <Compile Include="IInputService.cs" />
+    <Compile Include="IOutputService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CalculatorCommandParsingLibrary\CalculatorCommandParsingLibrary.csproj">
-      <Project>{b1cea06c-a835-4cc7-ac06-a41f1833f6f0}</Project>
-      <Name>CalculatorCommandParsingLibrary</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CommonTypesLibrary\CommonTypesLibrary.csproj">
       <Project>{575fe8bb-5d32-47f0-abd4-8408e64d1b92}</Project>
       <Name>CommonTypesLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\InputOutputLibrary\InputOutputLibrary.csproj">
-      <Project>{ac80a896-a2c4-43bb-bf64-225b9cf169c9}</Project>
-      <Name>InputOutputLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\InterfacesLibrary\InterfacesLibrary.csproj">
-      <Project>{3fafb475-2d9c-4e01-9873-95bc43479cd1}</Project>
-      <Name>InterfacesLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

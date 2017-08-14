@@ -54,6 +54,14 @@
       <Project>{e211b877-9535-4613-817d-285ed5af24c4}</Project>
       <Name>CalculatorLibrary</Name>
     </ProjectReference>
+    <ProjectReference Include="..\InputOutputLibrary\InputOutputLibrary.csproj">
+      <Project>{ac80a896-a2c4-43bb-bf64-225b9cf169c9}</Project>
+      <Name>InputOutputLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InterfacesLibrary\InterfacesLibrary.csproj">
+      <Project>{3fafb475-2d9c-4e01-9873-95bc43479cd1}</Project>
+      <Name>InterfacesLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

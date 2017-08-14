@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,12 +43,17 @@
   <ItemGroup>
     <Compile Include="ConsoleInputService.cs" />
     <Compile Include="ConsoleOutputService.cs" />
+    <Compile Include="MsgBoxOutputService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommonTypesLibrary\CommonTypesLibrary.csproj">
       <Project>{575fe8bb-5d32-47f0-abd4-8408e64d1b92}</Project>
       <Name>CommonTypesLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InterfacesLibrary\InterfacesLibrary.csproj">
+      <Project>{3fafb475-2d9c-4e01-9873-95bc43479cd1}</Project>
+      <Name>InterfacesLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
