@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ICalculator.cs" />
+    <Compile Include="ICalculatorReplLoop.cs" />
     <Compile Include="IInputParserService.cs" />
     <Compile Include="IInputService.cs" />
     <Compile Include="IOutputService.cs" />

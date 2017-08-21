@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Practices.Unity;
+using System;
 using System.Linq;
 
 namespace Application
@@ -7,8 +8,14 @@ namespace Application
     {
         static void Main(string[] args)
         {
-            CalculatorReplLoop loop = new CalculatorReplLoop();
-            loop.OutputService = new MsgBoxOutputService();
+            UnityContainer container = new UnityContainer();
+            container.RegisterType<ICalculator, Calculator>();
+            container.RegisterType<IInputService, ConsoleInputService>();
+            container.RegisterType<IOutputService, ConsoleOutputService>();
+            container.RegisterType<IInputParserService, InputParserService>();
+            container.RegisterType<ICalculatorReplLoop, CalculatorReplLoop>();
+
+            ICalculatorReplLoop loop = container.Resolve<ICalculatorReplLoop>();
             loop.Run();
         }
     }

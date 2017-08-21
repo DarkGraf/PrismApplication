@@ -2,38 +2,39 @@
 
 namespace Application
 {
-    public class CalculatorReplLoop
+    public class CalculatorReplLoop : ICalculatorReplLoop
     {
-        public CalculatorReplLoop()
+        public CalculatorReplLoop(ICalculator calculator, IInputService inputService,
+            IOutputService outputService, IInputParserService parsingService)
         {
-            Calculator = new Calculator();
-            InputService = new ConsoleInputService();
-            OutputService = new ConsoleOutputService();
-            ParsingService = new InputParserService();
+            this.calculator = calculator;
+            this.inputService = inputService;
+            this.outputService = outputService;
+            this.parsingService = parsingService;
         }
 
-        public ICalculator Calculator { get; set; }
-        public IInputService InputService { get; set; }
-        public IOutputService OutputService { get; set; }
-        public IInputParserService ParsingService { get; set; }
+        ICalculator calculator;
+        IInputService inputService;
+        IOutputService outputService;
+        IInputParserService parsingService;
 
         public void Run()
         {
             while (true)
             {
-                string command = InputService.ReadCommand();
+                string command = inputService.ReadCommand();
 
                 try
                 {
-                    CommandType commandType = ParsingService.ParseCommand(command);
+                    CommandType commandType = parsingService.ParseCommand(command);
 
-                    Arguments args = InputService.ReadArguments();
+                    Arguments args = inputService.ReadArguments();
 
-                    OutputService.WriteMessage(Calculator.Execute(commandType, args).ToString());
+                    outputService.WriteMessage(calculator.Execute(commandType, args).ToString());
                 }
                 catch 
                 {
-                    OutputService.WriteMessage("Mistake!");
+                    outputService.WriteMessage("Mistake!");
                 }
             }
         }
