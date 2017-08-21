@@ -1,21 +1,24 @@
-﻿using System;
+﻿using Microsoft.Practices.Unity;
+using System;
+using System.Collections.Generic;
 
 namespace Application
 {
     public class CalculatorReplLoop : ICalculatorReplLoop
     {
-        public CalculatorReplLoop(ICalculator calculator, IInputService inputService,
-            IOutputService outputService, IInputParserService parsingService)
+        public CalculatorReplLoop(IUnityContainer container, ICalculator calculator, 
+            IInputService inputService, IInputParserService parsingService)
         {
             this.calculator = calculator;
             this.inputService = inputService;
-            this.outputService = outputService;
             this.parsingService = parsingService;
+
+            outputServices = new List<IOutputService>(container.ResolveAll<IOutputService>());
         }
 
         ICalculator calculator;
         IInputService inputService;
-        IOutputService outputService;
+        List<IOutputService> outputServices;
         IInputParserService parsingService;
 
         public void Run()
@@ -30,12 +33,20 @@ namespace Application
 
                     Arguments args = inputService.ReadArguments();
 
-                    outputService.WriteMessage(calculator.Execute(commandType, args).ToString());
+                    WriteMessageToAllOutputServices(calculator.Execute(commandType, args).ToString());
                 }
                 catch 
                 {
-                    outputService.WriteMessage("Mistake!");
+                    WriteMessageToAllOutputServices("Mistake!");
                 }
+            }
+        }
+
+        void WriteMessageToAllOutputServices(string message)
+        {
+            foreach (IOutputService outputService in outputServices)
+            {
+                outputService.WriteMessage(message);
             }
         }
     }
