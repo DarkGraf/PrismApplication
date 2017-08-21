@@ -1,4 +1,5 @@
-﻿using Microsoft.Practices.Unity;
+﻿using Microsoft.Practices.ServiceLocation;
+using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Generic;
 
@@ -6,14 +7,14 @@ namespace Application
 {
     public class CalculatorReplLoop : ICalculatorReplLoop
     {
-        public CalculatorReplLoop(IUnityContainer container, ICalculator calculator, 
+        public CalculatorReplLoop(IServiceLocator locator, ICalculator calculator, 
             IInputService inputService, IInputParserService parsingService)
         {
             this.calculator = calculator;
             this.inputService = inputService;
             this.parsingService = parsingService;
 
-            outputServices = new List<IOutputService>(container.ResolveAll<IOutputService>());
+            outputServices = new List<IOutputService>(locator.GetAllInstances<IOutputService>());
         }
 
         ICalculator calculator;

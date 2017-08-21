@@ -1,5 +1,7 @@
-﻿using Microsoft.Practices.Unity;
+﻿using Microsoft.Practices.ServiceLocation;
+using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
+using Prism.Unity;
 using System;
 using System.Configuration;
 using System.Linq;
@@ -13,8 +15,7 @@ namespace Application
             UnityContainer container = new UnityContainer();
 
             container.LoadConfiguration();
-            //UnityConfigurationSection configSection = (UnityConfigurationSection)ConfigurationManager.GetSection("unity");
-            //configSection.Containers.Default.Configure(container);
+            container.RegisterInstance<IServiceLocator>(new UnityServiceLocatorAdapter(container));
 
             ICalculatorReplLoop loop = container.Resolve<ICalculatorReplLoop>();
             loop.Run();
