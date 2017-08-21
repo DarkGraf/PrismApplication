@@ -1,5 +1,7 @@
 ﻿using Microsoft.Practices.Unity;
+using Microsoft.Practices.Unity.Configuration;
 using System;
+using System.Configuration;
 using System.Linq;
 
 namespace Application
@@ -9,11 +11,10 @@ namespace Application
         static void Main(string[] args)
         {
             UnityContainer container = new UnityContainer();
-            container.RegisterType<ICalculator, Calculator>();
-            container.RegisterType<IInputService, ConsoleInputService>();
-            container.RegisterType<IOutputService, ConsoleOutputService>();
-            container.RegisterType<IInputParserService, InputParserService>();
-            container.RegisterType<ICalculatorReplLoop, CalculatorReplLoop>();
+
+            container.LoadConfiguration();
+            //UnityConfigurationSection configSection = (UnityConfigurationSection)ConfigurationManager.GetSection("unity");
+            //configSection.Containers.Default.Configure(container);
 
             ICalculatorReplLoop loop = container.Resolve<ICalculatorReplLoop>();
             loop.Run();
