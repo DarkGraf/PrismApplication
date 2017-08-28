@@ -10,21 +10,8 @@ namespace Application
     {
         static void Main(string[] args)
         {
-            UnityContainer container = new UnityContainer();
-            container.RegisterInstance<IServiceLocator>(new UnityServiceLocatorAdapter(container));
-
-            container.RegisterType<IModuleInitializer, ModuleInitializer>();
-
-            TextLogger logger = new TextLogger();
-            container.RegisterInstance<ILoggerFacade>(logger);
-
-            ConfigurationModuleCatalog catalog = new ConfigurationModuleCatalog();
-            container.RegisterInstance<IModuleCatalog>(catalog);
-
-            container.RegisterType<IModuleManager, ModuleManager>();
-
-            IModuleManager manager = container.Resolve<IModuleManager>();
-            manager.Run();
+            CalculatorBootstrapper bootstrapper = new CalculatorBootstrapper();
+            bootstrapper.Run();
         }
     }
 }
