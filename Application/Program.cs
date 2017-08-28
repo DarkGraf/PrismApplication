@@ -1,10 +1,8 @@
 ﻿using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.Unity;
-using Microsoft.Practices.Unity.Configuration;
+using Prism.Logging;
+using Prism.Modularity;
 using Prism.Unity;
-using System;
-using System.Configuration;
-using System.Linq;
 
 namespace Application
 {
@@ -13,12 +11,20 @@ namespace Application
         static void Main(string[] args)
         {
             UnityContainer container = new UnityContainer();
-
-            container.LoadConfiguration();
             container.RegisterInstance<IServiceLocator>(new UnityServiceLocatorAdapter(container));
 
-            ICalculatorReplLoop loop = container.Resolve<ICalculatorReplLoop>();
-            loop.Run();
+            container.RegisterType<IModuleInitializer, ModuleInitializer>();
+
+            TextLogger logger = new TextLogger();
+            container.RegisterInstance<ILoggerFacade>(logger);
+
+            ConfigurationModuleCatalog catalog = new ConfigurationModuleCatalog();
+            container.RegisterInstance<IModuleCatalog>(catalog);
+
+            container.RegisterType<IModuleManager, ModuleManager>();
+
+            IModuleManager manager = container.Resolve<IModuleManager>();
+            manager.Run();
         }
     }
 }

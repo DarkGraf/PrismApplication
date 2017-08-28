@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{6D12ED08-2E7B-4896-B2E9-60AE4D44FB0A}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -20,6 +20,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorCommandParsingLibrary", "CalculatorCommandParsingLibrary\CalculatorCommandParsingLibrary.csproj", "{B1CEA06C-A835-4CC7-AC06-A41F1833F6F0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfacesLibrary", "InterfacesLibrary\InterfacesLibrary.csproj", "{3FAFB475-2D9C-4E01-9873-95BC43479CD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainModuleLibrary", "MainModuleLibrary\MainModuleLibrary.csproj", "{8AE8B06E-FDBC-400E-B110-D6970E99A24A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{3FAFB475-2D9C-4E01-9873-95BC43479CD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FAFB475-2D9C-4E01-9873-95BC43479CD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FAFB475-2D9C-4E01-9873-95BC43479CD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AE8B06E-FDBC-400E-B110-D6970E99A24A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AE8B06E-FDBC-400E-B110-D6970E99A24A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AE8B06E-FDBC-400E-B110-D6970E99A24A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AE8B06E-FDBC-400E-B110-D6970E99A24A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
