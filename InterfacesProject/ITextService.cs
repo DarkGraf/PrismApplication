@@ -6,7 +6,5 @@ namespace InterfacesProject
     {
         string GetText();
         void SetText(string newValue);
-
-        event EventHandler TextChanged;
     }
 }

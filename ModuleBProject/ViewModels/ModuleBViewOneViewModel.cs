@@ -1,5 +1,7 @@
 ﻿using InterfacesProject;
+using Prism.Events;
 using System.ComponentModel;
+using System;
 
 namespace ModuleBProject.ViewModels
 {
@@ -7,13 +9,17 @@ namespace ModuleBProject.ViewModels
     {
         ITextService textService;
 
-        public ModuleBViewOneViewModel(ITextService textService)
+        public ModuleBViewOneViewModel(ITextService textService, IEventAggregator eventAggregator)
         {
             this.textService = textService;
-            this.textService.TextChanged += (s, e) =>
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Text"));
-            };
+
+            TextChangedEvent evt = eventAggregator.GetEvent<TextChangedEvent>();
+            evt.Subscribe(OnTextChangedReceived);
+        }
+
+        private void OnTextChangedReceived(string newText)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Text"));
         }
 
         public string Text
