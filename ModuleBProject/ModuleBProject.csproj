@@ -77,6 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ModuleDefinition\ModuleB.cs" />
+    <Compile Include="ViewModels\ModuleBViewOneViewModel.cs" />
     <Compile Include="Views\ModuleBViewOne.xaml.cs">
       <DependentUpon>ModuleBViewOne.xaml</DependentUpon>
     </Compile>
@@ -97,6 +98,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

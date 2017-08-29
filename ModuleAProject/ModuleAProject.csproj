@@ -77,6 +77,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ModuleDefinition\ModuleA.cs" />
+    <Compile Include="ViewModels\ModuleAViewOneViewModel.cs" />
+    <Compile Include="ViewModels\ModuleAViewTwoViewModel.cs" />
     <Compile Include="Views\ModuleAViewOne.xaml.cs">
       <DependentUpon>ModuleAViewOne.xaml</DependentUpon>
     </Compile>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ModuleAProject.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,14 @@ namespace ModuleAProject
     /// </summary>
     public partial class ModuleAViewTwo : UserControl
     {
-        public ModuleAViewTwo()
+        public ModuleAViewTwo(ModuleAViewTwoViewModel model)
         {
             InitializeComponent();
+
+            Loaded += (s, e) =>
+            {
+                DataContext = model;
+            };
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ModuleBProject.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,14 @@ namespace ModuleBProject
     /// </summary>
     public partial class ModuleBViewOne : UserControl
     {
-        public ModuleBViewOne()
+        public ModuleBViewOne(ModuleBViewOneViewModel model)
         {
             InitializeComponent();
+
+            Loaded += (s, e) =>
+            {
+                DataContext = model;
+            };
         }
     }
 }
