@@ -30,6 +30,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleBProject", "ModuleBProject\ModuleBProject.csproj", "{4399EB2A-E2C9-4E9F-A96D-9FF5AFEE6096}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWpfApplication", "MyWpfApplication\MyWpfApplication.csproj", "{F30B29DE-01D5-40AA-875B-82C8198E0F50}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4399EB2A-E2C9-4E9F-A96D-9FF5AFEE6096} = {4399EB2A-E2C9-4E9F-A96D-9FF5AFEE6096}
+		{93D21140-3563-4BE9-B7F2-1917289D2E39} = {93D21140-3563-4BE9-B7F2-1917289D2E39}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Calculator", "Calculator", "{702AFB02-9210-4BC4-9201-C1A6CEC6DA56}"
 EndProject
