@@ -25,7 +25,7 @@ namespace ModuleAProject
 
         private void RegisterServices()
         {
-            container.RegisterType<ITextService, TextService>();
+            container.RegisterInstance<ITextService>(new TextService());
         }
 
         private void RegisterViews()
