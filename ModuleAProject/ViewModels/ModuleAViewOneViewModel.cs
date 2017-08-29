@@ -1,6 +1,7 @@
 ﻿using InterfacesProject;
 using Prism.Commands;
 using Prism.Events;
+using Prism.Regions;
 using System;
 using System.ComponentModel;
 using System.Windows.Input;
@@ -9,20 +10,18 @@ namespace ModuleAProject.ViewModels
 {
     public class ModuleAViewOneViewModel : INotifyPropertyChanged
     {
-        ITextService textService;
-        IEventAggregator eventAggregator;
+        IRegionManager regionManager;
 
-        public ModuleAViewOneViewModel(ITextService textService, IEventAggregator eventAggregator)
+        public ModuleAViewOneViewModel(IRegionManager regionManager)
         {
-            this.textService = textService;
-            this.eventAggregator = eventAggregator;
+            this.regionManager = regionManager;
         }
 
         public string Text
         {
             get
             {
-                return textService.GetText();
+                return regionManager.Regions["ParentRegion"].Context as string;
             }
         }
 
@@ -42,12 +41,9 @@ namespace ModuleAProject.ViewModels
 
         private void OnChangeCommandExecute(string newText)
         {
-            textService.SetText(newText);
+            regionManager.Regions["ParentRegion"].Context = newText;
 
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Text"));
-
-            TextChangedEvent evt = eventAggregator.GetEvent<TextChangedEvent>();
-            evt.Publish(textService.GetText());
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -1,5 +1,6 @@
 ﻿using InterfacesProject;
 using Prism.Events;
+using Prism.Regions;
 using System;
 using System.ComponentModel;
 
@@ -7,25 +8,26 @@ namespace ModuleAProject.ViewModels
 {
     public class ModuleAViewTwoViewModel : INotifyPropertyChanged
     {
-        ITextService textService;
+        IRegionManager regionManager;
 
-        public ModuleAViewTwoViewModel(ITextService textService, IEventAggregator eventAggregator)
+        public ModuleAViewTwoViewModel(IRegionManager regionManager)
         {
-            this.textService = textService;
-            TextChangedEvent evt = eventAggregator.GetEvent<TextChangedEvent>();
-            evt.Subscribe(OnTextChangedReceived);
-        }
+            this.regionManager = regionManager;
 
-        public void OnTextChangedReceived(string newText)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Text"));
+            regionManager.Regions["ParentRegion"].PropertyChanged += (s, e) =>
+            {
+                if (e.PropertyName == "Context")
+                {
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Text"));
+                }
+            };
         }
 
         public int Text
         {
             get
             {
-                return textService.GetText().Length;
+                return (regionManager.Regions["ParentRegion"].Context as string).Length;
             }
         }
 

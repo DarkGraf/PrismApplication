@@ -2,31 +2,31 @@
 using Prism.Events;
 using System.ComponentModel;
 using System;
+using Prism.Regions;
 
 namespace ModuleBProject.ViewModels
 {
     public class ModuleBViewOneViewModel : INotifyPropertyChanged
     {
-        ITextService textService;
+        IRegionManager regionManager;
 
-        public ModuleBViewOneViewModel(ITextService textService, IEventAggregator eventAggregator)
+        public ModuleBViewOneViewModel(IRegionManager regionManager)
         {
-            this.textService = textService;
-
-            TextChangedEvent evt = eventAggregator.GetEvent<TextChangedEvent>();
-            evt.Subscribe(OnTextChangedReceived);
-        }
-
-        private void OnTextChangedReceived(string newText)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Text"));
+            this.regionManager = regionManager;
+            regionManager.Regions["ParentRegion"].PropertyChanged += (s, e) =>
+            {
+                if (e.PropertyName == "Context")
+                {
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Text"));
+                }
+            };
         }
 
         public string Text
         {
             get
             {
-                return textService.GetText().Split(' ')[0];
+                return (regionManager.Regions["ParentRegion"].Context as string).Split(' ')[0];
             }
         }
 

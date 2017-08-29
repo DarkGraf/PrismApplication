@@ -7,11 +7,9 @@
         xmlns:prism="http://www.codeplex.com/prism"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
+    <ItemsControl
+        prism:RegionManager.RegionName="ParentRegion"
+        prism:RegionManager.RegionContext="Initial Value">
 
         <ItemsControl 
             prism:RegionManager.RegionName="ListRegion"
@@ -20,5 +18,5 @@
         <ContentControl 
             prism:RegionManager.RegionName="MainRegion"
             Grid.Column="1" />
-    </Grid>
+    </ItemsControl>
 </Window>
